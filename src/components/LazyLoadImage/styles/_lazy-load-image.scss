@@ -1,0 +1,73 @@
+/**
+ * Lazy Image requires an aspect ratio percentage as a padding-top to be set on a component level
+ * e.g. a 16:9 image has the variable of $aspect-16-9 set on the .lazy-image class that equates to 56.25%
+ */
+
+ .lazy-image {
+    $this: &;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &__placeholder {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $light-placeholder-gradient;
+        overflow: hidden;
+    
+        &--small {
+    
+            #{$this}__placeholder-image {
+                background-size: 60%;
+            }
+        }
+    
+        &--dark {
+            background: $dark-placeholder-gradient;
+        }
+    }
+    
+    &__placeholder-image { // placeholder logo
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        // BG image set in markup
+        opacity: .1;
+        background-size: 40%;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    &__picture {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0;
+        transition: opacity .35s ease;
+
+        &.is-loaded {
+            opacity: 1;
+        }
+    }
+}

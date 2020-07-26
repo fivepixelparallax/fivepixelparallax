@@ -1,0 +1,42 @@
+.footer {
+    padding: $layout-padding * 2 0;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__logo-link {
+        width: 65%;
+        max-width: 50rem;
+        flex-shrink: 0;
+        margin-bottom: $layout-padding * 2;
+    }
+
+    &__logo-icon {
+        fill: var(--secondary);
+    }
+
+    &__section {
+        margin-bottom: $layout-padding * 2;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+        margin: 0 $layout-padding;
+    }
+
+    &__link {
+        @include link-reset;
+        padding: $layout-padding;
+        color: var(--text-light);
+    }
+}

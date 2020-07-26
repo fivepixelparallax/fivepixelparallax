@@ -1,0 +1,56 @@
+$primary: #010101;
+$primary-hover: lighten($primary, 10%);
+
+$secondary: #e4e4e4;
+$secondary-hover: darken($secondary, 10%);
+
+$text-dark: $primary;
+$text-light: $secondary;
+
+$black: #000;
+$white: #fff;
+
+:root {
+    --primary: #{$primary};
+    --primary-hover: #{$primary-hover};
+    --secondary: #{$secondary};
+    --secondary-hover: #{$secondary-hover};
+    --text-dark: #{$text-dark};
+    --text-light: #{$text-light};
+}
+
+$light-placeholder-gradient: linear-gradient(to top right, var(--secondary), var(--secondary-hover));
+$dark-placeholder-gradient: linear-gradient(to top right, var(--primary), var(--primary-hover));
+
+/* Social Colours */
+$instagram-gradient: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+
+/* Breakpoints */
+$break-small-mobile: 375px;
+$break-mobile: 415px;
+$break-phablet: 640px;
+$break-tablet: 840px;
+$break-desktop: 1025px;
+$break-wide: 1300px;
+
+/* Aspect ratios */
+$aspect-16-10: 10 / 16 * 100%; // 16:10
+$aspect-16-9: 9 / 16 * 100%; // 16:9
+$aspect-2-3: 3 / 2 * 100%; // 2:3
+$aspect-3-2: 2 / 3 * 100%; // 2:3
+$aspect-3-4: 4 / 3 * 100%; // 3:4
+$aspect-4-3: 3 / 4 * 100%; // 4:3
+
+/* Layout */
+$wrapper-width: 136rem;
+$layout-padding: 1.6rem;
+
+/* Z-Index Layers */
+$level-one: 10;
+$level-two: 20;
+$level-three: 30;
+$level-four: 40;
+$level-five: 50;
+$level-six: 60;
+
+$transition: .25s ease;

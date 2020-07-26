@@ -1,0 +1,137 @@
+/* stylelint-disable declaration-no-important  */
+
+.u-hide {
+    display: none !important;
+}
+
+.u-show {
+    display: block !important;
+}
+
+.u-visually-hidden {
+    visibility: hidden;
+}
+
+.u-text-center {
+    text-align: center;
+}
+
+.u-text-upper {
+    text-transform: uppercase !important;
+}
+
+.u-no-font {
+    font-size: 0 !important;
+}
+
+.u-screen-reader {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.u-body-no-scroll {
+    height: 100%;
+    overflow: hidden;
+}
+
+/**
+ * Requires a height and width so it can be detected when in view
+ */
+
+.u-observed {
+    min-width: .1rem;
+    min-height: .1rem;
+}
+
+.u-no-margin {
+    margin: 0 !important;
+}
+
+.u-no-padding {
+    padding: 0 !important;
+}
+
+@media (min-width: $break-wide) {
+
+    .u-show-wide {
+        display: none;
+    }
+}
+
+@media (max-width: $break-wide) {
+
+    .u-hide-wide {
+        display: none !important;
+    }
+}
+
+@media (min-width: $break-desktop) {
+
+    .u-show-desktop {
+        display: none;
+    }
+}
+
+@media (max-width: $break-desktop) {
+
+    .u-hide-desktop {
+        display: none !important;
+    }
+}
+
+@media (max-width: $break-tablet) {
+
+    .u-body-no-scroll {
+        position: fixed;
+    }
+
+    .u-hide-tablet {
+        display: none;
+    }
+
+    .u-display-tablet {
+        display: inline-block !important;
+    }
+}
+
+@media (min-width: $break-tablet) {
+
+    .u-show-tablet {
+        display: none !important;
+    }
+}
+
+@media (max-width: $break-phablet) {
+
+    .u-hide-phablet {
+        display: none !important;
+    }
+}
+
+@media (min-width: $break-phablet) {
+
+    .u-show-phablet {
+        display: none !important;
+    }
+}
+
+@media (min-width: $break-mobile) {
+
+    .u-show-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: $break-mobile) {
+
+    .u-hide-mobile {
+        display: none;
+    }
+}
+/* stylelint-enable */

@@ -1,0 +1,62 @@
+$light: 300;
+$regular: 400;
+$bold: 700;
+
+body {
+    font-family: 'Source Sans Pro', Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.8rem;
+}
+
+h4 {
+    font-size: 2.6rem;
+}
+
+h5 {
+    font-size: 2.4rem;
+}
+
+h6 {
+    font-size: 2.2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $bold;
+}
+
+strong,
+.bold {
+    font-weight: $bold;
+}
+
+.light {
+    font-weight: $light;
+}
+
+p {
+    line-height: 1.4;
+
+    a {
+        color: var(--text-dark);
+        text-decoration: none;
+
+        @include hover {
+            text-decoration: underline;
+        }
+    }
+}

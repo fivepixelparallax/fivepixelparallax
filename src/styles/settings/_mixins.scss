@@ -1,0 +1,98 @@
+// Mixins
+
+@mixin link-reset { // remove default browser styling of a link tag
+    color: inherit;
+    text-decoration: none;
+}
+
+@mixin button-reset { //remove default browser styling of a button tag
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 0;
+}
+
+/*
+ * Adds hover and focus styles for tablet (by default) and up
+ * Only keeps focus styles for below tablet (by default)
+ * If focus set to false then only hover styling will be applied
+ */
+@mixin hover($breakpoint: $break-tablet, $focus: true) {
+
+    @if $focus == true {
+
+        &:focus {
+            @content;
+        }
+    }
+
+    @media (min-width: $breakpoint) {
+
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin retina-bg($file, $type, $width, $height) {
+    // stylelint-disable-next-line function-url-quotes
+    background-image: url($file + '.' + $type);
+
+    @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+
+        & {
+            // stylelint-disable-next-line function-url-quotes
+            background-image: url($file + '@x2.' + $type);
+            background-size: $width $height;
+        }
+    }
+}
+
+@mixin retina-bg-cover($file, $type) {
+    // stylelint-disable-next-line function-url-quotes
+    background-image: url($file + '.' + $type);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+
+        & {
+            // stylelint-disable-next-line function-url-quotes
+            background-image: url($file + '@x2.' + $type);
+        }
+    }
+}
+
+/*
+ * Applies an ellipsis to text that overflows the width passed into the mixin
+ * NB this ONLY works on single lines of text
+ */
+@mixin truncate($width: 100%) {
+    width: $width;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*
+ * Applies an ellipsis to text that overflows the amount of lines given
+ *
+ * max-height and oveflow hidden workaround for non-webkit browsers
+ * Please use rem values for the line-height param on this mixin as the max height calculation needs a unit
+ */
+@mixin truncate-multiline($line: 2, $line-height: 1.8rem) {
+    max-height: $line * $line-height;
+    overflow: hidden;
+
+    // stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix
+
+    @supports (-webkit-line-clamp: $line) {
+        display: -webkit-box;
+        -webkit-line-clamp: $line;
+        /* autoprefixer: off */
+        -webkit-box-orient: vertical;
+        /* autoprefixer: on */
+    }
+
+    // stylelint-enable
+}

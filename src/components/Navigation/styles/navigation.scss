@@ -1,0 +1,75 @@
+.navigation {
+    $this: &;
+    position: sticky;
+    top: 0;
+    padding: $layout-padding 0;
+    background-color: var(--primary);
+    box-shadow: 0 0 3px 1px rgba($black, .2);
+    z-index: $level-six;
+
+    &__menu {
+        display: flex;
+        align-items: center;
+    }
+
+    &__brand {
+        width: 5rem;
+        height: 5rem;
+        margin-right: $layout-padding;
+    }
+
+    &__burger {
+
+    }
+    
+    &__list {
+        display: flex;
+        align-items: center;
+    }
+
+    &__item {
+        display: block;
+        margin: 0 $layout-padding;
+
+        &--home {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+
+            #{$this}__icon { // home icon
+                width: 100%;
+                height: 100%;
+                fill: var(--secondary);
+            }
+        }
+
+        &--github {
+            width: 4rem;
+            height: 4rem;
+            position: relative;
+            flex-shrink: 0;
+            margin-left: auto;
+            background-color: var(--secondary);
+            border-radius: 100%;
+
+            #{$this}__icon { // github icon
+                width: 2.8rem;
+                height: 2.8rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                fill: var(--primary); // official github colour
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    &__link {
+        @include link-reset;
+        color: var(--text-light);
+    }
+
+    &__icon {
+
+    }
+}
