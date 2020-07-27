@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 
 import Main from '../components/Main/Main';
-import PageHeader from '../components/PageHeader/PageHeader';
+import Landing from '../components/Landing/Landing';
 import Features from '../components/Features/Features';
 import BlogRoll from '../components/BlogRoll/BlogRoll';
 
@@ -17,7 +17,7 @@ export const IndexPageTemplate = ( {
     intro,
 } ) => (
     <div>
-        <PageHeader image={ !!image.childImageSharp ? image.childImageSharp.fluid.src : image } title={ title ? title : null } subheading={ subheading ? subheading : null } />
+        <Landing />
         <section className="section section--gradient">
             <div className="container">
                 <div className="section">

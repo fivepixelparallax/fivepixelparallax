@@ -1,0 +1,12 @@
+.landing {
+    background-color: var(--primary);
+    color: var(--text-light);
+
+    &__icon {
+        fill: currentColor;
+    }
+
+    &__wordmark {
+        fill: currentColor;
+    }
+}
