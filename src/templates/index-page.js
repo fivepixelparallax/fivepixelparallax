@@ -4,7 +4,6 @@ import { Link, graphql } from 'gatsby';
 
 import Main from '../components/Main/Main';
 import Landing from '../components/Landing/Landing';
-import Features from '../components/Features/Features';
 import BlogRoll from '../components/BlogRoll/BlogRoll';
 
 export const IndexPageTemplate = ( {
@@ -20,48 +19,23 @@ export const IndexPageTemplate = ( {
         <Landing />
         <section className="section">
             <div className="wrapper">
-                <div className="section">
-                    <div className="columns">
-                        <div className="column is-10 is-offset-1">
-                            <div className="content">
-                                <div className="content">
-                                    <div className="tile">
-                                        <h1 className="title">{mainpitch.title}</h1>
-                                    </div>
-                                    <div className="tile">
-                                        <h3 className="subtitle">{mainpitch.description}</h3>
-                                    </div>
-                                </div>
-                                <div className="columns">
-                                    <div className="column is-12">
-                                        <h3 className="has-text-weight-semibold is-size-2">
-                                            {heading}
-                                        </h3>
-                                        <p>{description}</p>
-                                    </div>
-                                </div>
-                                <Features gridItems={intro.blurbs} />
-                                <div className="columns">
-                                    <div className="column is-12 has-text-centered">
-                                        <Link className="button" to="/products">
-                                            See all products
-                                        </Link>
-                                    </div>
-                                </div>
-                                <div className="column is-12">
-                                    <h3 className="has-text-weight-semibold is-size-2">
-                                        Latest stories
-                                    </h3>
-                                    <BlogRoll />
-                                    <div className="column is-12 has-text-centered">
-                                        <Link className="button" to="/blog">
-                                            Read more
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <h1 className="section__title">{ mainpitch.title }</h1>
+                <h3 className="section__subtitle">{ mainpitch.description }</h3>
+                <div className="section__heading">
+                    <h3 className="section__heading-title">{ heading }</h3>
+                    <p className="section__heading-description">{ description }</p>
+                </div>
+                <div className="section__heading">
+                    <Link className="section__link button" to="/products">
+                        See all products
+                    </Link>
+                </div>
+                <div className="section__heading">
+                    <h3 className="section__heading-title">Latest Stories</h3>
+                    <BlogRoll />
+                    <Link className="section__link button" to="/blog">
+                        Read more
+                    </Link>
                 </div>
             </div>
         </section>
