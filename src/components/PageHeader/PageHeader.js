@@ -3,8 +3,6 @@ import LazyLoadImage from '../LazyLoadImage/LazyLoadImage';
 
 export default function PageHeader( { imageInfo, title, subtitle } ) {
 
-    console.log( 'Page Header Image: ', imageInfo );
-
     const imageObj = {
         image: imageInfo,
         text: title

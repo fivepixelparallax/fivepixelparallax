@@ -113,8 +113,6 @@ ProductPageTemplate.propTypes = {
 const ProductPage = ( { data } ) => {
 
     const { frontmatter } = data.markdownRemark
-    
-    console.log( 'DATA: ', frontmatter.image );
 
     return (
         <Main isLanding={ false }>
@@ -161,11 +159,12 @@ export const productPageQuery = graphql`
           blurbs {
             image {
               childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
+                fluid(maxWidth: 640, quality: 64) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
+            title
             text
           }
           heading
