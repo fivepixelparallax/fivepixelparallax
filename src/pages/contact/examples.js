@@ -5,7 +5,7 @@ import Main from '../../components/Main/Main'
 export default class Index extends React.Component {
     render() {
         return (
-            <Main>
+            <Main isLanding={ false }>
                 <section className="section">
                     <div className="container">
                         <div className="content">

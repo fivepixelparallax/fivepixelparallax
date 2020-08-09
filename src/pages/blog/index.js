@@ -6,7 +6,7 @@ import BlogRoll from '../../components/BlogRoll/BlogRoll';
 export default class BlogIndexPage extends React.Component {
     render() {
         return (
-            <Main>
+            <Main isLanding={ false }>
                 <PageHeader backgroundImage={ '/img/blog-index.jpg' } title={ 'Latest Stories' } />
                 <section className="section">
                     <div className="container">

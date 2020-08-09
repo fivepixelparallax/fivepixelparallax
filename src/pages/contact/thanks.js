@@ -2,7 +2,7 @@ import React from 'react'
 import Main from '../../components/Main/Main'
 
 export default () => (
-    <Main>
+    <Main isLanding={ false }>
         <section className="section">
             <div className="container">
                 <div className="content">

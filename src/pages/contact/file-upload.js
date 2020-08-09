@@ -42,7 +42,7 @@ export default class Contact extends React.Component {
 
     render() {
         return (
-            <Main>
+            <Main isLanding={ false }>
                 <section className="section">
                     <div className="container">
                         <div className="content">

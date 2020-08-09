@@ -8,8 +8,8 @@ export const AboutPageTemplate = ( { title, content, contentComponent } ) => {
     const PageContent = contentComponent || Content
 
     return (
-        <section className="section section--gradient">
-            <div className="container">
+        <section className="section">
+            <div className="wrapper">
                 <div className="columns">
                     <div className="column is-10 is-offset-1">
                         <div className="section">
@@ -35,7 +35,7 @@ const AboutPage = ( { data } ) => {
     const { markdownRemark: post } = data
 
     return (
-        <Main>
+        <Main isLanding={ false }>
             <AboutPageTemplate
                 contentComponent={HTMLContent}
                 title={post.frontmatter.title}

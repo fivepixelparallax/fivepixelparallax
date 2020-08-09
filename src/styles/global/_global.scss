@@ -2,22 +2,6 @@
 
 * {
     box-sizing: border-box;
-
-    // @media (min-width: $break-tablet) {
-
-    //     &::-webkit-scrollbar {
-    //         width: 11px;
-    //         height: 11px;
-    //     }
-    
-    //     &::-webkit-scrollbar-track {
-    //         background: $darker-ui;
-    //     }
-    
-    //     &::-webkit-scrollbar-thumb {
-    //         background-color: $primary;
-    //     }
-    // }
 }
 
 h1,
@@ -52,12 +36,16 @@ cite {
 
 html {
     font-size: 62.5%;
-    background: var(--primary);
+    background: RGB(var(--primary-normal));
 }
 
 body {
-    color: var(--text-dark);
+    color: RGB(var(--text-dark));
     font-size: 1.6rem;
+
+    &.is-docked { // when the navigation is docked
+
+    }
 }
 
 button {

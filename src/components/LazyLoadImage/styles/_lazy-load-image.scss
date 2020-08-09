@@ -17,7 +17,7 @@
         right: 0;
         bottom: 0;
         left: 0;
-        background: $light-placeholder-gradient;
+        background: var(--light-placeholder-gradient);
         overflow: hidden;
     
         &--small {
@@ -28,7 +28,7 @@
         }
     
         &--dark {
-            background: $dark-placeholder-gradient;
+            background: var(--dark-placeholder-gradient);
         }
     }
     

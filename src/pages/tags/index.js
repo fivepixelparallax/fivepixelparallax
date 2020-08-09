@@ -12,7 +12,7 @@ const TagsPage = ( {
         },
     },
 } ) => (
-        <Main>
+        <Main isLanding={ false }>
             <section className="section">
                 <Helmet title={`Tags | ${title}`} />
                 <div className="container content">

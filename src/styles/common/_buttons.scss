@@ -4,27 +4,27 @@
     position: relative;
     display: block;
     padding: $layout-padding $layout-padding * 2;
-    background-color: var(--primary);
+    background-color: RGB(var(--primary-normal));
     text-transform: uppercase;
     text-align: center;
-    color: var(--text-light);
-    transition: background-color $transition, transform $transition;
+    color: RGB(var(--text-light));
+    transition: background-color $transition, transform $transition, box-shadow $transition;
     // in case the button is not an anchor or button element (it should be), cursor is set
     cursor: pointer;
 
     @include hover {
-        background-color: var(--primary-hover);
+        background-color: RGB(var(--primary-light));
         transform: translateY(-2px);
-        box-shadow: -2px 2px 3px 1px rgba($black, .15);
+        box-shadow: -2px 2px 3px 1px RGBA(var(--black), .15);
         text-decoration: none;
     }
 
     &--secondary {
-        background-color: var(--secondary);
-        color: var(--text-dark);
+        background-color: RGB(var(--secondary-normal));
+        color: RGB(var(--text-dark));
 
         @include hover {
-            color: var(--text-light);
+            color: RGB(var(--text-light));
         }
     }
 

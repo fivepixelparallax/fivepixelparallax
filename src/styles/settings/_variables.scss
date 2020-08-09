@@ -1,26 +1,21 @@
-$primary: #010101;
-$primary-hover: lighten($primary, 10%);
-
-$secondary: #e4e4e4;
-$secondary-hover: darken($secondary, 10%);
-
-$text-dark: $primary;
-$text-light: $secondary;
-
-$black: #000;
-$white: #fff;
-
 :root {
-    --primary: #{$primary};
-    --primary-hover: #{$primary-hover};
-    --secondary: #{$secondary};
-    --secondary-hover: #{$secondary-hover};
-    --text-dark: #{$text-dark};
-    --text-light: #{$text-light};
-}
+    --primary-light: 31, 31, 31;
+    --primary-normal: 1, 1, 1;
 
-$light-placeholder-gradient: linear-gradient(to top right, var(--secondary), var(--secondary-hover));
-$dark-placeholder-gradient: linear-gradient(to top right, var(--primary), var(--primary-hover));
+    --secondary-light: 242, 242, 242;
+    --secondary-normal: 228, 228, 228;
+    --secondary-dark: 204, 204, 204;
+    
+    --text-light: 228, 228, 228;
+    --text-normal: 1, 1, 1;
+
+    --black: 0, 0, 0;
+    --white: 255, 255, 255;
+
+    --light-placeholder-gradient: linear-gradient(to top right, RGB(RGB(var(--secondary-normal))), RGB(RGB(var(--secondary-dark))));
+    --dark-placeholder-gradient: linear-gradient(to top right, RGB(RGB(var(--primary-normal))), RGB(RGB(var(--primary-light))));
+  }
+
 
 /* Social Colours */
 $instagram-gradient: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
@@ -44,6 +39,8 @@ $aspect-4-3: 3 / 4 * 100%; // 4:3
 /* Layout */
 $wrapper-width: 136rem;
 $layout-padding: 1.6rem;
+$navigation-height: 8.2rem;
+$mobile-navigation-height: 6rem;
 
 /* Z-Index Layers */
 $level-one: 10;

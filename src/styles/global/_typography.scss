@@ -52,7 +52,7 @@ p {
     line-height: 1.4;
 
     a {
-        color: var(--text-dark);
+        color: RGB(var(--text-dark));
         text-decoration: none;
 
         @include hover {

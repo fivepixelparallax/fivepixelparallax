@@ -31,6 +31,7 @@
         "react-dom": "^16.8.4",
         "react-helmet": "^6.0.0",
         "react-lazyload": "^3.0.0",
+        "react-scroll-parallax": "^2.3.4",
         "uuid": "^7.0.0"
     },
     "keywords": [

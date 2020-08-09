@@ -1,42 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby'
 
+import { CLASS_NAMES } from '../../common/constants';
+
 import { ReactComponent as BrandIcon } from '../../img/brand-icon.svg';
 import { ReactComponent as GitHubIcon } from '../../img/social/github.svg';
 
-export default function Navigation() {
+export default function Navigation( { isLanding } ) {
 
-    const SCROLL_DEBOUNCE = 150;
+    const SCROLL_DEBOUNCE = 300;
+    const SCROLL_OFFSET = 150;
     
     const [ isOpen, setOpen ] = useState( false );
     const [ isDocked, setDocked ] = useState( false );
     
     const toggleMenu = () => {
         isOpen ? setOpen( false ) : setOpen( true );
-    }
+    };
 
     const shouldDock = () => {
-        return window.scrollY >= window.innerHeight ? true : false;
-    }
+        if ( ( window.scrollY + SCROLL_OFFSET ) >= window.innerHeight ) {
+            setDocked( true );
+            document.body.classList.add( CLASS_NAMES.IS_DOCKED );
+        } else {
+            setDocked( false );
+            document.body.classList.remove( CLASS_NAMES.IS_DOCKED );
+        }
+    };
     
     useEffect( () => {
 
-        let timeoutId = null;
-        const scrollListener = () => {
-            clearTimeout( timeoutId );
-            timeoutId = setTimeout( () => setDocked( shouldDock() ), SCROLL_DEBOUNCE );
-        };
-        window.addEventListener( 'scroll', scrollListener );
+        if ( isLanding ) {
 
-        // clean up function
-        return () => {
-            window.removeEventListener( 'scroll', scrollListener );
-        };
+            let timeoutId = null;
+            const scrollListener = () => {
+                clearTimeout( timeoutId );
+                timeoutId = setTimeout( () => shouldDock(), SCROLL_DEBOUNCE );
+            };
+            window.addEventListener( 'scroll', scrollListener );
+    
+            // clean up function
+            return () => {
+                window.removeEventListener( 'scroll', scrollListener );
+            };
+        }
 
-    }, [] )
+    }, [ isLanding ] );
 
     return (
-        <nav className={ `navigation ${ isDocked ? 'is-docked' : '' }` } role="navigation" aria-label="main-navigation">
+        <nav className={ `navigation ${ isDocked || !isLanding ? CLASS_NAMES.IS_DOCKED : '' }` } role="navigation" aria-label="main-navigation">
             <div className="wrapper">
                 <div id="navMenu" className={`navigation__menu ${ isOpen ? 'is-open' : '' }`}>
                     <div className="navigation__brand">
@@ -90,5 +102,5 @@ export default function Navigation() {
                 </div>
             </div>
         </nav>
-    )
+    );
 }

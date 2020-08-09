@@ -1,13 +1,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import Footer from '../Footer/Footer';
-import Navbar from '../Navigation/Navigation';
-import '../../styles/screen.scss';
-import useSiteMetadata from '../SiteMetadata/SiteMetadata';
 import { withPrefix } from 'gatsby';
 
-const TemplateWrapper = ( { children } ) => {
-    const { title, description } = useSiteMetadata()
+import useSiteMetadata from '../SiteMetadata/SiteMetadata';
+import Footer from '../Footer/Footer';
+import Navigation from '../Navigation/Navigation';
+import '../../styles/screen.scss';
+
+const Main = ( { children, isLanding } ) => {
+    const { title, description } = useSiteMetadata();
     return (
         <>
             <Helmet>
@@ -44,11 +45,11 @@ const TemplateWrapper = ( { children } ) => {
                 <meta property="og:image" content={`${withPrefix( '/' )}img/favicons/og-image.jpg`} />
                 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet"/>
             </Helmet>
-            <Navbar />
+            <Navigation isLanding={ isLanding }/>
             <main role="main" className="main">{ children }</main>
             <Footer />
         </>
     )
 }
 
-export default TemplateWrapper
+export default Main;

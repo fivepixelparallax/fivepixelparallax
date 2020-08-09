@@ -1,12 +1,40 @@
 .landing {
-    background-color: var(--primary);
-    color: var(--text-light);
+    height: 100vh;
+    background-color: RGB(var(--primary-normal));
+    color: RGB(var(--text-light));
+
+    &::after {
+        content: '';
+        width: 100%;
+        height: $navigation-height;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to bottom, RGBA(var(--primary-normal), .8), RGBA(var(--primary-normal), 0));
+        z-index: $level-two;
+    }
+
+    &__logo-container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 
     &__icon {
-        fill: currentColor;
+        width: 60%;
+        max-width: 28rem;
+        position: relative;
     }
 
     &__wordmark {
+        width: 75%;
+        max-width: 80rem;
+        position: relative;
+    }
+    
+    &__img {
         fill: currentColor;
     }
 }

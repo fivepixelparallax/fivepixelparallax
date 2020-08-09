@@ -21,8 +21,8 @@ export const ProductPageTemplate = ( {
 } ) => (
     <div className="content">
         <PageHeader image={ !!image.childImageSharp ? image.childImageSharp.fluid.src : image } title={ title ? title : null } />
-        <section className="section section--gradient">
-            <div className="container">
+        <section className="section">
+            <div className="wrapper">
                 <div className="section">
                     <div className="columns">
                         <div className="column is-7 is-offset-1">
@@ -114,7 +114,7 @@ const ProductPage = ( { data } ) => {
     const { frontmatter } = data.markdownRemark
 
     return (
-        <Main>
+        <Main isLanding={ false }>
             <ProductPageTemplate
                 image={frontmatter.image}
                 title={frontmatter.title}

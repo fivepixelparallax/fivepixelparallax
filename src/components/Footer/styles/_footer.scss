@@ -15,7 +15,7 @@
     }
 
     &__logo-icon {
-        fill: var(--secondary);
+        fill: RGB(var(--secondary-normal));
     }
 
     &__section {
@@ -37,6 +37,6 @@
     &__link {
         @include link-reset;
         padding: $layout-padding;
-        color: var(--text-light);
+        color: RGB(var(--text-light));
     }
 }

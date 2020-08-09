@@ -18,8 +18,8 @@ export const IndexPageTemplate = ( {
 } ) => (
     <div>
         <Landing />
-        <section className="section section--gradient">
-            <div className="container">
+        <section className="section">
+            <div className="wrapper">
                 <div className="section">
                     <div className="columns">
                         <div className="column is-10 is-offset-1">
@@ -84,7 +84,7 @@ const IndexPage = ( { data } ) => {
     const { frontmatter } = data.markdownRemark
 
     return (
-        <Main>
+        <Main isLanding={ true }>
             <IndexPageTemplate
                 image={frontmatter.image}
                 title={frontmatter.title}
