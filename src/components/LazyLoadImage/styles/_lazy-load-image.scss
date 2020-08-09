@@ -20,14 +20,14 @@
         background: var(--light-placeholder-gradient);
         overflow: hidden;
     
-        &--small {
+        &.small {
     
             #{$this}__placeholder-image {
                 background-size: 60%;
             }
         }
     
-        &--dark {
+        &.dark {
             background: var(--dark-placeholder-gradient);
         }
     }

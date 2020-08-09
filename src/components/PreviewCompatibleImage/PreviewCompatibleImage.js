@@ -1,23 +1,40 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Img from 'gatsby-image'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 
 const PreviewCompatibleImage = ( { imageInfo, className } ) => {
-    const imageStyle = { borderRadius: '5px' }
+
+    const [ imageLoaded, setImageLoaded ] = useState( false );
     const { alt = '', childImageSharp, image } = imageInfo
+
+    const onLoad = () => {
+        setImageLoaded( true );
+    };
 
     if ( !!image && !!image.childImageSharp ) {
         return (
-            <Img className={className} style={imageStyle} fluid={image.childImageSharp.fluid} alt={alt} />
+            <Img 
+                className={ `${ className } ${ imageLoaded ? 'is-loaded' : '' }` }
+                fluid={ image.childImageSharp.fluid }
+                alt={ alt } 
+                onLoad={ () => onLoad() }/>
         )
     }
 
     if ( !!childImageSharp ) {
-        return <Img className={className} style={imageStyle} fluid={childImageSharp.fluid} alt={alt} />
+        return <Img 
+                    className={ `${ className } ${ imageLoaded ? 'is-loaded' : '' }` }
+                    fluid={ childImageSharp.fluid }
+                    alt={ alt } 
+                    onLoad={ () => onLoad() }/>
     }
 
     if ( !!image && typeof image === 'string' )
-        return <img className={className} style={imageStyle} src={image} alt={alt} />
+        return <img 
+                    className={ `${ className } ${ imageLoaded ? 'is-loaded' : '' }` }
+                    src={ image }
+                    alt={ alt } 
+                    onLoad={ () => onLoad() }/>
 
     return null
 }

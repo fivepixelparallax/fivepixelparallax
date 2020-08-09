@@ -48,59 +48,62 @@ export default function Navigation( { isLanding } ) {
     }, [ isLanding ] );
 
     return (
-        <nav className={ `navigation ${ isDocked || !isLanding ? CLASS_NAMES.IS_DOCKED : '' }` } role="navigation" aria-label="main-navigation">
-            <div className="wrapper">
-                <div id="navMenu" className={`navigation__menu ${ isOpen ? 'is-open' : '' }`}>
-                    <div className="navigation__brand">
-                        <Link to="/" className="navigation__item navigation__item--home" title="Logo">
-                            <BrandIcon className="navigation__icon" alt="fivepixelparallax" />
-                        </Link>
-                        <button
-                            className={`navigation__burger burger u-show-tablet ${ isOpen ? 'is-open' : '' }`}
-                            data-target="navMenu"
-                            onClick={() => toggleMenu()}>
-                            <span />
-                            <span />
-                            <span />
-                        </button>
+        <>
+            <div className="navigation-container"></div>
+            <nav className={ `navigation ${ isDocked || !isLanding ? CLASS_NAMES.IS_DOCKED : '' }` } role="navigation" aria-label="main-navigation">
+                <div className="wrapper">
+                    <div id="navMenu" className={`navigation__menu ${ isOpen ? 'is-open' : '' }`}>
+                        <div className="navigation__brand">
+                            <Link to="/" className="navigation__item navigation__item--home" title="Logo">
+                                <BrandIcon className="navigation__icon" alt="fivepixelparallax" />
+                            </Link>
+                            <button
+                                className={`navigation__burger burger u-show-tablet ${ isOpen ? 'is-open' : '' }`}
+                                data-target="navMenu"
+                                onClick={() => toggleMenu()}>
+                                <span />
+                                <span />
+                                <span />
+                            </button>
+                        </div>
+                        <ul className="navigation__list">
+                            <li className="navigation__item">
+                                <Link className="navigation__link" to="/about">
+                                    About
+                                </Link>
+                            </li>
+                            <li className="navigation__item">
+                                <Link className="navigation__link" to="/products">
+                                    Products
+                                </Link>
+                            </li>
+                            <li className="navigation__item">
+                                <Link className="navigation__link" to="/blog">
+                                    Blog
+                                </Link>
+                            </li>
+                            <li className="navigation__item">
+                                <Link className="navigation__link" to="/contact">
+                                    Contact
+                                </Link>
+                            </li>
+                            <li className="navigation__item">
+                                <Link className="navigation__link" to="/contact/examples">
+                                    Form Examples
+                                </Link>
+                            </li>
+                        </ul>
+                        <a
+                            className="navigation__item navigation__item--github"
+                            href="https://github.com/fivepixelparallax/fivepixelparallax"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <GitHubIcon className="navigation__icon" alt="github" />
+                        </a>
                     </div>
-                    <ul className="navigation__list">
-                        <li className="navigation__item">
-                            <Link className="navigation__link" to="/about">
-                                About
-                            </Link>
-                        </li>
-                        <li className="navigation__item">
-                            <Link className="navigation__link" to="/products">
-                                Products
-                            </Link>
-                        </li>
-                        <li className="navigation__item">
-                            <Link className="navigation__link" to="/blog">
-                                Blog
-                            </Link>
-                        </li>
-                        <li className="navigation__item">
-                            <Link className="navigation__link" to="/contact">
-                                Contact
-                            </Link>
-                        </li>
-                        <li className="navigation__item">
-                            <Link className="navigation__link" to="/contact/examples">
-                                Form Examples
-                            </Link>
-                        </li>
-                    </ul>
-                    <a
-                        className="navigation__item navigation__item--github"
-                        href="https://github.com/fivepixelparallax/fivepixelparallax"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <GitHubIcon className="navigation__icon" alt="github" />
-                    </a>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </>
     );
 }

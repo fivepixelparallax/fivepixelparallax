@@ -20,25 +20,25 @@ export const ProductPageTemplate = ( {
     pricing,
 } ) => (
     <div className="content">
-        <PageHeader image={ !!image.childImageSharp ? image.childImageSharp.fluid.src : image } title={ title ? title : null } />
+        <PageHeader imageInfo={ image } title={ title ? title : null } />
         <section className="section">
             <div className="wrapper">
                 <div className="section">
                     <div className="columns">
                         <div className="column is-7 is-offset-1">
-                            <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
-                            <p>{description}</p>
+                            <h3 className="has-text-weight-semibold is-size-2">{ heading }</h3>
+                            <p>{ description }</p>
                         </div>
                     </div>
                     <div className="columns">
                         <div className="column is-10 is-offset-1">
-                            <Features gridItems={intro.blurbs} />
+                            <Features gridItems={ intro.blurbs } />
                             <div className="columns">
                                 <div className="column is-7">
                                     <h3 className="has-text-weight-semibold is-size-3">
-                                        {main.heading}
+                                        { main.heading }
                                     </h3>
-                                    <p>{main.description}</p>
+                                    <p>{ main.description }</p>
                                 </div>
                             </div>
                             <div className="tile is-ancestor">
@@ -46,23 +46,23 @@ export const ProductPageTemplate = ( {
                                     <div className="tile">
                                         <div className="tile is-parent is-vertical">
                                             <article className="tile is-child">
-                                                <PreviewCompatibleImage imageInfo={main.image1} />
+                                                <PreviewCompatibleImage imageInfo={ main.image1 } />
                                             </article>
                                         </div>
                                         <div className="tile is-parent">
                                             <article className="tile is-child">
-                                                <PreviewCompatibleImage imageInfo={main.image2} />
+                                                <PreviewCompatibleImage imageInfo={ main.image2 } />
                                             </article>
                                         </div>
                                     </div>
                                     <div className="tile is-parent">
                                         <article className="tile is-child">
-                                            <PreviewCompatibleImage imageInfo={main.image3} />
+                                            <PreviewCompatibleImage imageInfo={ main.image3 } />
                                         </article>
                                     </div>
                                 </div>
                             </div>
-                            <Testimonials testimonials={testimonials} />
+                            <Testimonials testimonials={ testimonials } />
                             <div
                                 className="full-width-image-container"
                                 style={{
@@ -74,10 +74,10 @@ export const ProductPageTemplate = ( {
                                 }}
                             />
                             <h2 className="has-text-weight-semibold is-size-2">
-                                {pricing.heading}
+                                { pricing.heading }
                             </h2>
-                            <p className="is-size-5">{pricing.description}</p>
-                            <Pricing data={pricing.plans} />
+                            <p className="is-size-5">{ pricing.description }</p>
+                            <Pricing data={ pricing.plans } />
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,10 @@ ProductPageTemplate.propTypes = {
 }
 
 const ProductPage = ( { data } ) => {
+
     const { frontmatter } = data.markdownRemark
+    
+    console.log( 'DATA: ', frontmatter.image );
 
     return (
         <Main isLanding={ false }>

@@ -1,3 +1,8 @@
+.navigation-container {
+    position: relative;
+    height: $navigation-height;
+}
+
 .navigation {
     $this: &;
     --navigation-height: $navigation-height;

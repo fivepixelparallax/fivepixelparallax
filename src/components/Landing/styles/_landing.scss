@@ -1,5 +1,6 @@
 .landing {
     height: 100vh;
+    margin-top: -$navigation-height;
     background-color: RGB(var(--primary-normal));
     color: RGB(var(--text-light));
 

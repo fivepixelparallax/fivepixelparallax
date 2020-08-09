@@ -1,7 +1,21 @@
 .page-header {
+    height: 40vh;
     position: relative;
+    text-align: center;
+    padding: 8rem 0;
+    color: RGB(var(--secondary-normal));
 
     &__image {
         
+    }
+
+    &__title {
+        position: relative;
+        z-index: $level-two;
+    }
+
+    &__subtitle {
+        position: relative;
+        z-index: $level-two;
     }
 }

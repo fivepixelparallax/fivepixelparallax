@@ -6,6 +6,8 @@ import PreviewCompatibleImage from '../PreviewCompatibleImage/PreviewCompatibleI
 
 function LazyLoadImage( { imageInfo, className, imgClassName, placeholder = true, placeholderModifier } ) {
 
+    console.log( 'Lazy Load Image: ', imageInfo );
+
     const [ imageLoaded, setImageLoaded ] = useState( false );
 
     let placeholderClass;
@@ -36,14 +38,8 @@ function LazyLoadImage( { imageInfo, className, imgClassName, placeholder = true
                                 imageInfo={ imageInfo }
                                 className={ `lazy-image__img ${ imgClassName || '' } ${ imageLoaded ? 'is-loaded' : '' }` }
                                 onLoad={ () => onLoad( true ) } />
-                            {/* <ImageLoader
-                                imageInfo={ imageInfo }
-                                imgClassName={ imgClassName }/> */}
                         </div>
                     ) : (
-                        // <ImageLoader
-                        //     imageInfo={ imageInfo }
-                        //     imgClassName={ imgClassName }/>
                         <PreviewCompatibleImage
                             imageInfo={ imageInfo }
                             className={ `lazy-image__img ${ imgClassName || '' } ${ imageLoaded ? 'is-loaded' : '' }` }
