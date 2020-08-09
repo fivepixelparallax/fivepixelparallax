@@ -1,0 +1,27 @@
+.section {
+    padding: $layout-padding * 2 0;
+
+    &__title {
+        font-size: 4.2rem;
+        margin-bottom: $layout-padding;
+    }
+
+    &__subtitle {
+        margin-bottom: $layout-padding;
+    }
+
+    &__heading {
+    }
+    
+    &__heading-title {
+        margin-bottom: $layout-padding / 2;
+    }
+
+    &__heading-description {
+
+    }
+
+    &__link {
+
+    }
+}
