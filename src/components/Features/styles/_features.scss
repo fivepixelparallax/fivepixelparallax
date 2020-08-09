@@ -1,0 +1,9 @@
+.feature {
+    position: relative;
+
+    &__image-container {
+        height: 0;
+        position: relative;
+        padding-top: $aspect-16-9;
+    }
+}

@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import LazyLoad from 'react-lazyload';
 
-import ImageLoader from './ImageLoader';
+import PreviewCompatibleImage from '../PreviewCompatibleImage/PreviewCompatibleImage';
 
-function LazyLoadImage( { src, srcConfigs, alt, className, pictureClassName, imgClassName, placeholder = true, placeholderModifier } ) {
+function LazyLoadImage( { imageInfo, className, imgClassName, placeholder = true, placeholderModifier } ) {
+
+    const [ imageLoaded, setImageLoaded ] = useState( false );
 
     let placeholderClass;
     if ( placeholder ) {
         placeholderClass = `lazy-image__placeholder ${ placeholderModifier || '' }`;
     }
+
+    const onLoad = () => {
+        setImageLoaded( true );
+    };
 
     return (
         <LazyLoad
@@ -26,20 +32,22 @@ function LazyLoadImage( { src, srcConfigs, alt, className, pictureClassName, img
                                     backgroundImage: `url('/img/logo.svg')`
                                 }}
                             ></div>
-                            <ImageLoader
-                                src={ src }
-                                srcConfigs={ srcConfigs }
-                                alt={ alt }
-                                pictureClassName={ pictureClassName }
-                                imgClassName={ imgClassName }/>
+                            <PreviewCompatibleImage
+                                imageInfo={ imageInfo }
+                                className={ `lazy-image__img ${ imgClassName || '' } ${ imageLoaded ? 'is-loaded' : '' }` }
+                                onLoad={ () => onLoad( true ) } />
+                            {/* <ImageLoader
+                                imageInfo={ imageInfo }
+                                imgClassName={ imgClassName }/> */}
                         </div>
                     ) : (
-                        <ImageLoader
-                            src={ src }
-                            srcConfigs={ srcConfigs }
-                            alt={ alt }
-                            pictureClassName={ pictureClassName }
-                            imgClassName={ imgClassName }/>
+                        // <ImageLoader
+                        //     imageInfo={ imageInfo }
+                        //     imgClassName={ imgClassName }/>
+                        <PreviewCompatibleImage
+                            imageInfo={ imageInfo }
+                            className={ `lazy-image__img ${ imgClassName || '' } ${ imageLoaded ? 'is-loaded' : '' }` }
+                            onLoad={ () => onLoad( true ) } />
                     )
                 }
             </div>
@@ -48,14 +56,11 @@ function LazyLoadImage( { src, srcConfigs, alt, className, pictureClassName, img
 }
 
 LazyLoadImage.propTypes = {
-    src: PropTypes.string.isRequired, // the img src URL, should contain at least one ODIR width/height param
-    srcConfigs: PropTypes.arrayOf( PropTypes.object ), // array of source config objects, e.g. { srcSet: 'https://image.jpg?width=100&', media: '(max-width: 840px)' }
-    alt: PropTypes.string, // alt attribute for the image
+    imageInfo: PropTypes.object.isRequired,
+    className: PropTypes.string, // a class for the lazy load element
+    imgClassName: PropTypes.string, // the styling class for the img element
     placeholder: PropTypes.bool, // set to false to not use a placeholder for the image
     placeholderModifier: PropTypes.string, // the styling modifier for the placeholder, e.g. 'placeholder--light'
-    className: PropTypes.string, // a class for the lazy load element
-    pictureClassName: PropTypes.string, // the styling class for the picture element
-    imgClassName: PropTypes.string // the styling class for the img element
 };
 
 export default LazyLoadImage;

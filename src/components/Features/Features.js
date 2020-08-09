@@ -1,25 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import PreviewCompatibleImage from '../PreviewCompatibleImage/PreviewCompatibleImage'
+
+import LazyLoadImage from '../LazyLoadImage/LazyLoadImage';
+// import PreviewCompatibleImage from '../PreviewCompatibleImage/PreviewCompatibleImage'
 
 const FeatureGrid = ( { gridItems } ) => (
-    <div className="columns is-multiline">
+    <div className="features">
         {gridItems.map( ( item ) => (
-            <div key={item.text} className="column is-6">
-                <section className="section">
-                    <div className="has-text-centered">
-                        <div
-                            style={{
-                                width: '240px',
-                                display: 'inline-block',
-                            }}
-                        >
-                            <PreviewCompatibleImage imageInfo={item} />
-                        </div>
-                    </div>
-                    <p>{item.text}</p>
-                </section>
-            </div>
+            <figure key={item.text} className="features__feature feature">
+                <LazyLoadImage imageInfo={ item } className="feature__image-container" imgClassName="feature__image"/>
+                <figcaption className="feature__caption">
+                    <h4 className="feature__title">{ item.title }</h4>
+                    <p className="feature__description">{ item.text }</p>
+                </figcaption>
+            </figure>
         ) )}
     </div>
 )
