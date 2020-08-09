@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Main from '../components/Main/Main';
 import PageHeader from '../components/PageHeader/PageHeader';
+import Features from '../components/Features/Features';
 import Testimonials from '../components/Testimonials/Testimonials';
 import Pricing from '../components/Pricing/Pricing';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage/PreviewCompatibleImage';
@@ -31,6 +32,7 @@ export const ProductPageTemplate = ( {
                     </div>
                     <div className="columns">
                         <div className="column is-10 is-offset-1">
+                            <Features gridItems={intro.blurbs} />
                             <div className="columns">
                                 <div className="column is-7">
                                     <h3 className="has-text-weight-semibold is-size-3">
