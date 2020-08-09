@@ -2,7 +2,7 @@
 
 This is the home of [fivepixelparallax](https://fivepixelparallax.com) Web Development Agency.
 
-For enquiries, email [info@fivepixelparallax.com](info@fivepixelparallax.com).
+For enquiries, email [info@fivepixelparallax.com](mailto:info@fivepixelparallax.com).
 
 ## Prerequisites
 
