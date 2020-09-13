@@ -4,7 +4,7 @@ import { withPrefix } from 'gatsby';
 
 import useSiteMetadata from '../SiteMetadata/SiteMetadata';
 import Footer from '../Footer/Footer';
-import Navigation from '../Navigation/Navigation';
+import Navigation from '../Navigation/NavigationNoCms';
 import '../../styles/screen.scss';
 
 const Main = ( { children, isLanding } ) => {

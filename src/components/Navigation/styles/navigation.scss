@@ -30,16 +30,6 @@
         display: flex;
         align-items: center;
     }
-
-    &__brand {
-        width: 5rem;
-        height: 5rem;
-        margin-right: $layout-padding;
-    }
-
-    &__burger {
-
-    }
     
     &__list {
         display: flex;
@@ -51,20 +41,32 @@
         margin: 0 $layout-padding;
 
         &--home {
-            width: 100%;
-            height: 100%;
             margin: 0;
 
+            #{$this}__link {
+
+                @include hover {
+
+                    #{$this}__icon {
+                        animation: bounce .45s forwards;
+                    }
+
+                    #{$this}__wordmark {
+                        transform: translateX(-$layout-padding / 2);
+                    }
+                }
+            }
+
             #{$this}__icon { // home icon
-                width: 100%;
-                height: 100%;
-                fill: RGB(var(--secondary-normal));
+                width: 5rem;
+                height: 5rem;
+                fill: currentColor;
             }
         }
 
         &--github {
-            width: 4rem;
-            height: 4rem;
+            width: 5rem;
+            height: 5rem;
             position: relative;
             flex-shrink: 0;
             margin-left: auto;
@@ -72,12 +74,12 @@
             border-radius: 100%;
 
             #{$this}__icon { // github icon
-                width: 2.8rem;
-                height: 2.8rem;
+                width: 3.6rem;
+                height: 3.6rem;
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                fill: RGB(var(--primary-normal)); // official github colour
+                fill: RGB(var(--primary-normal));
                 transform: translate(-50%, -50%);
             }
         }
@@ -89,7 +91,45 @@
         font-size: 2rem;
     }
 
-    &__icon {
+    &__burger {
 
+    }
+
+    &--no-cms {
+
+        #{$this}__item--home {
+
+            #{$this}__link {
+                display: flex;
+                align-items: center;
+            }
+
+            #{$this}__icon {
+                flex-shrink: 0;
+                margin-right: $layout-padding;
+            }
+            
+            #{$this}__wordmark { // only present in the non-CMS version
+                height: 2.6rem;
+                flex-shrink: 0;
+                fill: currentColor;
+                transition: transform .25s .1s ease;
+            }
+        }
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-10%) scale(.95);
+    }
+    75% {
+        transform: translateY(8%) scale(1.1);
+    }
+    100% {
+        transform: translateY(0) scale(1);
     }
 }
