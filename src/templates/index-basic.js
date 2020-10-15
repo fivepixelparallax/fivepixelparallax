@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Main from '../components/Main/Main';
 import Landing from '../components/Landing/Landing';
 import Features from '../components/Features/Features';
-import BlogRoll from '../components/BlogRoll/BlogRoll';
 
-export const IndexPageTemplate = ( {
+export const IndexBasicTemplate = ( {
     image,
     title,
     heading,
@@ -26,7 +25,7 @@ export const IndexPageTemplate = ( {
                             <div className="content">
                                 <div className="content">
                                     <div className="tile">
-                                        <h1 className="title">INDEX PAGE</h1>
+                                        <h1 className="title">INDEX BASIC</h1>
                                         <h1 className="title">{mainpitch.title}</h1>
                                     </div>
                                     <div className="tile">
@@ -42,24 +41,6 @@ export const IndexPageTemplate = ( {
                                     </div>
                                 </div>
                                 <Features gridItems={intro.blurbs} />
-                                <div className="columns">
-                                    <div className="column is-12 has-text-centered">
-                                        <Link className="button" to="/products">
-                                            See all products
-                                        </Link>
-                                    </div>
-                                </div>
-                                <div className="column is-12">
-                                    <h3 className="has-text-weight-semibold is-size-2">
-                                        Latest stories
-                                    </h3>
-                                    <BlogRoll />
-                                    <div className="column is-12 has-text-centered">
-                                        <Link className="button" to="/blog">
-                                            Read more
-                                        </Link>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -69,7 +50,7 @@ export const IndexPageTemplate = ( {
     </div>
 )
 
-IndexPageTemplate.propTypes = {
+IndexBasicTemplate.propTypes = {
     image: PropTypes.oneOfType( [PropTypes.object, PropTypes.string] ),
     title: PropTypes.string,
     heading: PropTypes.string,
@@ -81,12 +62,13 @@ IndexPageTemplate.propTypes = {
     } ),
 }
 
-const IndexPage = ( { data } ) => {
+const IndexBasic = ( { data } ) => {
+
     const { frontmatter } = data.markdownRemark
 
     return (
         <Main isLanding={ true }>
-            <IndexPageTemplate
+            <IndexBasicTemplate
                 image={frontmatter.image}
                 title={frontmatter.title}
                 heading={frontmatter.heading}
@@ -99,7 +81,7 @@ const IndexPage = ( { data } ) => {
     )
 }
 
-IndexPage.propTypes = {
+IndexBasic.propTypes = {
     data: PropTypes.shape( {
         markdownRemark: PropTypes.shape( {
             frontmatter: PropTypes.object,
@@ -107,10 +89,10 @@ IndexPage.propTypes = {
     } ),
 }
 
-export default IndexPage
+export default IndexBasicTemplate;
 
 export const pageQuery = graphql`
-  query IndexPageTemplate {
+  query IndexBasicTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title

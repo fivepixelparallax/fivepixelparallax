@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'fivepixelparallax',
     description:
-      'The home of fivepixelparallax Web Development Agency.',
+      'The home of fivepixelparallax Web Development.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

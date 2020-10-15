@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { withPrefix } from 'gatsby';
 
 import useSiteMetadata from '../SiteMetadata/SiteMetadata';
-import Footer from '../Footer/Footer';
+import Footer from '../Footer/FooterNoCms';
 import Navigation from '../Navigation/NavigationNoCms';
 import '../../styles/screen.scss';
 
